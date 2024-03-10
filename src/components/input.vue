@@ -56,8 +56,8 @@ export default {
     left: 16px;
     transition: 0.5s;
     font-size: 15px;
-    &.active {
-      font-size: 12px;
+    &.active{
+    font-size: 12px;
       top: 0;
       left: 16px;
       transition: 0.5s;
