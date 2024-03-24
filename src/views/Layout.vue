@@ -1,5 +1,8 @@
 <template>
-  <MenuComponent></MenuComponent>
+  <div style="display: flex">
+    <MenuComponent></MenuComponent>
+    <RouterView />
+  </div>
 </template>
 
 <script>

@@ -1,21 +1,19 @@
 <template>
   <div class="form-control">
-    <div class="input-container">
-      <input
-        type="text"
-        :id="id"
-        :aria-placeholder="placeholder"
-        v-model="inputValue"
-        @focus="onFocus"
-        @blur="onBlur"
-      />
-      <label :for="id" :class="{ active: focused || inputValue }">
-        <span v-if="icon" class="icon active">
-          <font-awesome-icon :icon="icon" />
-        </span>
-        {{ label || placeholder }}
-      </label>
-    </div>
+    <input
+      type="text"
+      :id="id"
+      :aria-placeholder="placeholder"
+      v-model="inputValue"
+      @focus="onFocus"
+      @blur="onBlur"
+    />
+    <label :for="id" :class="{ active: focused || inputValue }">
+      <span v-if="icon" class="icon active">
+        <font-awesome-icon :icon="icon" />
+      </span>
+      {{ label || placeholder }}
+    </label>
   </div>
 </template>
 
@@ -27,6 +25,7 @@ export default {
     id: String,
     placeholder: String,
     icon: String,
+    background: String,
   },
   data() {
     return {
@@ -49,18 +48,23 @@ export default {
 .form-control {
   position: relative;
   transition: 0.5s;
-
+  display: flex;
+  width: 100%;
+  &:hover label {
+    font-size: 10px;
+    top: 3px;
+    transition: 0.5s;
+  }
   label {
     position: absolute;
     top: 17px;
     left: 16px;
     transition: 0.5s;
     font-size: 15px;
-    &.active{
-    font-size: 12px;
-      top: 0;
-      left: 16px;
-      transition: 0.5s;
+
+    &.active {
+      font-size: 10px;
+      top: 3px;
     }
   }
 
@@ -69,17 +73,17 @@ export default {
     color: #000;
     background-color: #fff;
     border-radius: 4px;
-    border-width: 1px;
+    border: 1px solid transparent;
     outline: none;
-    border-color: transparent;
     font-size: 15px;
+    display: flex;
+    width: 100%;
+    background-color: #ededed;
 
     &:focus + label,
     &.active + label {
-      font-size: 12px;
-      top: 0;
-      left: 16px;
-      transition: 0.5s;
+      font-size: 10px;
+      top: 3px;
     }
   }
 
@@ -91,13 +95,6 @@ export default {
     height: 2px;
     width: 100%;
     background-color: #1c1c1c;
-  }
-
-  &:hover label {
-    font-size: 12px;
-    top: 0;
-    left: 16px;
-    transition: 0.5s;
   }
 }
 </style>
